@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+
+    <bean name="testBean" class="tinyspring.ioc.step5.TestBean">
+        <property name="name" value="这是名字"></property>
+        <property name="sex" value="这是性别"></property>
+        <property name="id" value="123456"></property>
+        <property name="testService" ref="testService"></property>
+    </bean>
+
+    <bean name="testService" class="tinyspring.ioc.step5.TestService">
+        <property name="serviceId" value="001"></property>
+    </bean>
+
+</beans>

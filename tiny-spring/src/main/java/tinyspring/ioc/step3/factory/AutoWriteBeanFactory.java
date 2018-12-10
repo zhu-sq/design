@@ -24,7 +24,7 @@ public class AutoWriteBeanFactory extends AbstractBeanFactory {
         return null;
     }
 
-    public void applyPropertyValues(Object bean,BeanDefinition beanDefinition){
+    private void applyPropertyValues(Object bean,BeanDefinition beanDefinition){
 
         if(beanDefinition.getPropertyValues() ==null) return;
         try{
