@@ -30,7 +30,8 @@ public class FutureTask<T> implements RunnableFuture<T> {
             T result = callable.call();
             set(result);
 
-            LockSupport.unpark(waiters.thread);
+            if (waiters != null)
+                LockSupport.unpark(waiters.thread);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -68,7 +69,6 @@ public class FutureTask<T> implements RunnableFuture<T> {
 
     private int awaitDone(boolean timed, long nanos) {
         WaitNode q = new WaitNode();
-        //q.next = waiters;
         waiters = q;
         LockSupport.park(this);
         return 0;
